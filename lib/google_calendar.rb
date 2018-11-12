@@ -1,6 +1,6 @@
 module GoogleCalendar
   
-  @calendar_id = 'CALENDAR ID'
+  @calendar_id = 'jha.kkumar@gmail.com'
   
   def self.client_options
     {
@@ -51,10 +51,6 @@ module GoogleCalendar
     client.update!(auth_session)
     service = Google::Apis::CalendarV3::CalendarService.new
     service.authorization = client
-    
-    p "************************"
-    p event_id
-    p "************************"
     
     service.delete_event(@calendar_id, event_id)
     
