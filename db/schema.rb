@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181112162302) do
+ActiveRecord::Schema.define(version: 20181112183146) do
 
   create_table "todos", force: true do |t|
     t.string   "title"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20181112162302) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "gcal_id"
+    t.string   "gcal_i_cal_uid"
   end
 
 end

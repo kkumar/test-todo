@@ -2,6 +2,15 @@ AlexTodo::Application.routes.draw do
   resources :todos
   
   root 'todos#index'
+  
+  get '/redirect', to: 'oauth_callback#redirect', as: 'redirect'
+  get '/callback', to: 'oauth_callback#callback', as: 'callback'
+  
+  get '/calendars', to: 'oauth_callback#calendars', as: 'calendars'
+  
+  get '/events/:calendar_id', to: 'oauth_callback#events', as: 'events', calendar_id: /[^\/]+/
+  
+  post '/events/:calendar_id', to: 'oauth_callback#new_event', as: 'new_event', calendar_id: /[^\/]+/
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
